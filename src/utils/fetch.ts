@@ -1,14 +1,14 @@
 // import { uuid } from 'uuidv4';
-// import { localStorage } from './localStorage'
+import { localStorage } from './localStorage'
 import { params } from './searchParams'
 
 // const TOKEN = localStorage.get('token')
 const TOKEN = 'df1131571e4a32aabf7792fb331750cd0390ed00'
+localStorage.set('token', TOKEN)
 
 const headers = new Headers({
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "Authorization": TOKEN ? `Bearer ${TOKEN}` : ''
 })
 
 interface Fetch {
@@ -18,6 +18,9 @@ interface Fetch {
 }
 
 const get = async (props: Fetch) => {
+    const token = localStorage.get('token')
+    headers.append('Authorization', token ? `Bearer ${token}` : '')
+
     const { url, searchParams } = props
     const newUrl = params.set(url, (searchParams ?? {}))
 
@@ -34,6 +37,9 @@ const get = async (props: Fetch) => {
 }
 
 const post = async (props: Fetch) => {
+    const token = localStorage.get('token')
+    headers.append('Authorization', token ? `Bearer ${token}` : '')
+
     const { url, searchParams, data } = props
     const newUrl = params.set(url, (searchParams ?? {}))
 
@@ -52,6 +58,9 @@ const post = async (props: Fetch) => {
 }
 
 const _delete = async (props: Fetch) => {
+    const token = localStorage.get('token')
+    headers.append('Authorization', token ? `Bearer ${token}` : '')
+
     const { url, searchParams } = props
     const newUrl = params.set(url, (searchParams ?? {}))
 
