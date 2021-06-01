@@ -1,8 +1,6 @@
-// const get = (key: string) => window.JSON.parse(window.localStorage.getItem(key))
-
-const set = (key: string, objs: any) => window.localStorage.setItem(key, window.JSON.stringify(objs))
-
 export const localStorage = {
-    // get,
-    set
+    get: (key: string): any => key ? window.localStorage.getItem(key) : undefined,
+    set: (key: string, objs: any) => window.localStorage.setItem(key, window.JSON.stringify(objs)),
+    remove: (key: string) => window.localStorage.removeItem(key),
+    clear: () => window.localStorage.clear()
 }
