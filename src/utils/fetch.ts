@@ -2,7 +2,7 @@
 import { localStorage } from './localStorage'
 import { params } from './searchParams'
 
-// const TOKEN = localStorage.get('token')
+
 const TOKEN = 'df1131571e4a32aabf7792fb331750cd0390ed00'
 localStorage.set('token', TOKEN)
 
