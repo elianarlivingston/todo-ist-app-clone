@@ -7,30 +7,35 @@ import Home from './views/user/Home'
 import Project from './views/user/Project'
 import NoMatch from './views/NoMatch'
 
-import { LayoutCustom } from './components'
+import { LayoutCustom, LayoutDefault } from './components'
 
 
 function App() {
 
   return (
     <Router>
-        <LayoutCustom>
           <Switch>
               <Route exact path="/">
-                <Home />
+                <LayoutCustom>
+                  <Home />
+                </LayoutCustom>
               </Route>
 
               <Route exact path="/project/:id">
+                <LayoutCustom>
                   <Project />
+                </LayoutCustom>
               </Route>
               
               <Route path="*">
+                <LayoutDefault>
                   <NoMatch />
+                </LayoutDefault>
               </Route>
           </Switch>
-        </LayoutCustom>
     </Router>
   );
 }
 
 export default App;
+

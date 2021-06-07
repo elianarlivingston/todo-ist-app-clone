@@ -1,6 +1,10 @@
+import { Container } from './styles'
+
 const Home = () => {
     return (
-        <h1>HOME</h1>
+        <Container>
+            <h1>HOME</h1>
+        </Container>
     )
 }
 

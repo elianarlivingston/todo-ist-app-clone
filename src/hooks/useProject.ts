@@ -17,14 +17,14 @@ const useProject = () => {
             const data: any = await projectService.getOne(id)
             setProject(data)
         },
-        createProject: (object: ProjectCreate) => {
-            projectService.create(object)
+        createProject: async (object: ProjectCreate) => {
+            await projectService.create(object)
         },
-        updateProject: (id: number, object: ProjectCreate) => {
-            projectService.update(id, object)
+        updateProject: async (id: number, object: ProjectCreate) => {
+            await projectService.update(id, object)
         },
-        deleteProject: (id: number) => {
-            projectService.delete(id)
+        deleteProject: async (id: number) => {
+            await projectService.delete(id)
         },
         projects,
         project

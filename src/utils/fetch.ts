@@ -3,12 +3,13 @@ import { localStorage } from './localStorage'
 import { params } from './searchParams'
 
 
-const TOKEN = 'df1131571e4a32aabf7792fb331750cd0390ed00'
+const TOKEN = '8093d5fbcc1af691bce1113a3fa78f7a0b8ec56c'
 localStorage.set('token', TOKEN)
 
 const headers = new Headers({
     "Content-Type": "application/json",
     "Accept": "application/json",
+    Authorization: ''
 })
 
 interface Fetch {
@@ -18,8 +19,8 @@ interface Fetch {
 }
 
 const get = async (props: Fetch) => {
-    const token = localStorage.get('token')
-    headers.append('Authorization', token ? `Bearer ${token}` : '')
+    const token = JSON.parse(localStorage.get('token'))
+    headers.set('Authorization', token ? `Bearer ${token}` : '')
 
     const { url, searchParams } = props
     const newUrl = params.set(url, (searchParams ?? {}))
@@ -37,8 +38,8 @@ const get = async (props: Fetch) => {
 }
 
 const post = async (props: Fetch) => {
-    const token = localStorage.get('token')
-    headers.append('Authorization', token ? `Bearer ${token}` : '')
+    const token = JSON.parse(localStorage.get('token'))
+    headers.set('Authorization', token ? `Bearer ${token}` : '')
 
     const { url, searchParams, data } = props
     const newUrl = params.set(url, (searchParams ?? {}))
@@ -58,8 +59,8 @@ const post = async (props: Fetch) => {
 }
 
 const _delete = async (props: Fetch) => {
-    const token = localStorage.get('token')
-    headers.append('Authorization', token ? `Bearer ${token}` : '')
+    const token = JSON.parse(localStorage.get('token'))
+    headers.set('Authorization', token ? `Bearer ${token}` : '')
 
     const { url, searchParams } = props
     const newUrl = params.set(url, (searchParams ?? {}))
