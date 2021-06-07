@@ -12,18 +12,18 @@ export default class ProjectService {
         return http.get({ url: `${PROJECTS}/${id}` })
     }
     create(object: ProjectCreate) {
-        http.post({
+        return http.post({
             url: PROJECTS,
             data: object
         })
     }
     update(id: number, object: ProjectCreate) {
-        http.post({
+        return http.post({
             url: `${PROJECTS}/${id}`,
             data: object
         })
     }
     delete(id: number) {
-        http.delete({ url: `${PROJECTS}/${id}` })
+        return http.delete({ url: `${PROJECTS}/${id}` })
     }
 }

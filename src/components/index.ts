@@ -1,2 +1,11 @@
 export { default as LayoutCustom } from './Layout/LayoutCustom'
 export { default as LayoutDefault } from './Layout/LayoutDefault'
+
+export { Sidebar } from './Sidebar'
+export { Header } from './Header'
+export { Button } from './Button'
+export { ButtonGroup } from './ButtonGroup'
+export { Accordion } from './Accordion'
+export { Menu } from './Menu'
+export { Modal } from './Modal'
+export { Select } from './Select'
