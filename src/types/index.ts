@@ -1,0 +1,1 @@
+export { Label, LabelCreate } from './Label'
